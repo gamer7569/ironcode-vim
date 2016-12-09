@@ -207,6 +207,12 @@ function! CodeStandardsMenu()
 
 endfunction
 
+" Currently copies visually selected range to clipboard.
+" Used as a Hello World for getting visually selected range.
+function! XmlFormat() range
+	echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).'| pbcopy')
+endfunction
+
 " map j to gj and k to gk, so line navigation ignores line wrap
 " http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
